@@ -69,6 +69,7 @@ struct InlineOSD: View {
                                 .lineLimit(1)
                                 .allowsTightening(true)
                                 .multilineTextAlignment(.trailing)
+                                .contentTransition(.numericText())
                         }
                     }
                 }
