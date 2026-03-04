@@ -236,10 +236,9 @@ class MusicManager: ObservableObject {
                 self.isPlaying = state.isPlaying
                 self.updateIdleState(state: state.isPlaying)
             }
-
-            if state.isPlaying && !state.title.isEmpty && !state.artist.isEmpty {
-                self.updateSneakPeek()
-                updateMusicAppActiveState()
+            
+            if !isMusicAppActive {
+                isMusicAppActive = true
             }
         }
 
@@ -708,6 +707,7 @@ class MusicManager: ObservableObject {
             if !isActive {
                 withAnimation(.smooth(duration: 0.3)) {
                     isPlayerIdle = true
+                    print("Player now idle")
                 }
             }
         }
