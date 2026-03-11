@@ -606,13 +606,11 @@ struct CustomSlider: View {
                         let newValue = range.lowerBound + Double(gesture.location.x / width) * rangeSpan
                         value = min(max(newValue, range.lowerBound), range.upperBound)
                         onDragChange?(value)
-                        print("Dragging: \(value)")
                     }
                     .onEnded { _ in
                         onValueChange?(value)
                         dragging = false
                         lastDragged = Date()
-                        print("Drag Ended: \(value)")
                     }
             )
             .animation(.spring(response: 0.35, dampingFraction: 0.7), value: dragging)
